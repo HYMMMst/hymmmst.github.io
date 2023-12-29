@@ -1,0 +1,584 @@
+<html>
+<head>
+    <title>My Own Website</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <style>
+        /* Gaya Umum */
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: black;
+            background-color: white;
+            margin: 0;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            text-align: right;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            padding: 20px;
+            margin-top: 0px;
+            margin-right: 20px;
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            background-color: whitesmoke;
+        }
+
+        nav {
+            display: inline-block;
+        }
+
+        nav a {
+            color: black;
+            text-decoration: none;
+            padding: 10px;
+            margin: 0 40px;
+        }
+
+        nav a:hover {
+            color: #ff9900;
+        }
+
+        /* Section Umum */
+        section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-height: 700px;
+            z-index: 0;
+            background-color: none;
+        }
+
+        /* Section HOME */
+        #HOME {
+            padding-top: 70px; /* Menyesuaikan dengan tinggi header */
+        }
+
+        .hello {
+            position: absolute;
+            right: 200px;
+            top: 180px;
+        }
+
+        .fotoaku {
+            position: absolute;
+            left: 300px;
+            top: 100px;
+        }
+
+        .fotoaku img:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s ease-in;
+        }
+
+        .belakang-image {
+            position: absolute;
+            width: 800px;
+            height: 800px;
+            left: 60px;
+            bottom: 0px;
+            z-index: -1;
+        }
+
+        .nama {
+            position: absolute;
+            right: 200px;
+            top: 170px;
+        }
+
+        h1 {
+            font-size: 70px;
+        }
+
+        .knowing {
+            position: absolute;
+            right: 200px;
+            top: 390px;
+        }
+
+        h3 {
+            font-size: 15px;
+            font-weight: lighter;
+        }
+
+        .atr {
+            background-color: whitesmoke;
+            width: 650px;
+            height: 300px;
+            z-index: -2;
+            position: absolute;
+            top: 155px;
+            right: 0px;
+        }
+
+        /* Section ABOUT */
+        #about-me-section {
+            padding-top: 70px; /* Menyesuaikan dengan tinggi header */
+        }
+
+        .about-me {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+
+        .profile-image {
+            border-radius: 50%;
+            overflow: hidden;
+            width: 150px;
+            height: 150px;
+            margin-right: 20px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-me-text {
+            position: absolute;
+            text-align: left;
+            left: 55%;
+            top: 160px;
+        }
+
+        .about-me-line {
+            height: 200px;
+            border-left: 2px solid white;
+            position: absolute;
+            top: 320px;
+            z-index: 2;
+            border-radius: 50%;
+        }
+
+        .slide {
+            display: none;
+            position: absolute;
+            height: 90%;
+            width: 80%;
+            justify-content: space-between;
+            align-items: center;
+            background: linear-gradient(to right, #ff9900, #ffcc00);
+            color: white;
+            border-radius: 30px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide img {
+            border: 5px solid white;
+            /* Bingkai putih */
+            position: absolute;
+            top: 130px;
+            left: 150px;
+            border-radius: 50%;
+            width: 400px;
+            height: 400px;
+            object-fit: contain;
+        }
+
+        .button {
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            top: 50%;
+            width: 90%;
+            transform: translateY(-50%);
+            z-index: 4;
+        }
+
+        .button button {
+            border-radius: 20%;
+        }
+
+        button:hover {
+            background-color: green;
+        }
+
+        /* Section CONTACT */
+        #CONTACT {
+            padding-top: 70px; /* Menyesuaikan dengan tinggi header */
+        }
+
+        .contact-section {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .contact-info {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            background-color: whitesmoke;
+        }
+
+        .info-item {
+            margin-bottom: 20px;
+        }
+
+        .info-item h2 {
+            font-size: 25px;
+            margin-bottom: 10px;
+        }
+
+        .info-item p {
+            font-size: 16px;
+            color: black;
+            transition: color 0.3s;
+        }
+
+        .info-item p a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .info-item p a:hover {
+            color: #ff9900;
+        }
+
+        .previous {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .next {
+            background-color: #f1f1f1;
+            color: black;
+        }
+
+        .round {
+            border-radius: 50%;
+        }
+
+        /* Media Queries untuk perangkat seluler */
+        @media only screen and (max-width: 600px) {
+            .hello,
+            .nama,
+            .knowing,
+            .atr,
+            .about-me-line,
+            .button,
+            .contact-info {
+                text-align: center;
+            }
+
+            .hello,
+            .nama,
+            .knowing,
+            .atr,
+            .belakang-image,
+            .about-me-line,
+            .contact-info {
+                position: static;
+                margin: 0;
+            }
+
+            .fotoaku {
+                left: auto;
+                top: auto;
+                text-align: center;
+            }
+
+            .belakang-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .fotoaku img:hover {
+                transform: none;
+            }
+
+            h1 {
+                font-size: 40px;
+            }
+
+            .atr {
+                width: 100%;
+            }
+
+            .about-me-text {
+                text-align: center;
+                left: 0;
+                margin-top: 20px;
+            }
+
+            .profile-image {
+                margin-right: 0;
+            }
+
+            .about-me-line {
+                display: none;
+            }
+
+            .button {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+    
+    <body>
+
+        <header>
+            <nav>
+                <a href="#HOME">HOME</a>
+                <a href="#about-me-section">ABOUT</a>
+                <a href="#CONTACT">CONTACT</a>
+                <img
+            src="Logo Baru.png" style="width: 70px; height: 70px; position: fixed; left: 50px; top: -5px; ">
+            </nav>
+
+            
+
+        </header>
+        
+        <section id="HOME">
+
+            <div class="hello">
+
+                <script>
+                    // Fungsi untuk menangani animasi scroll ke elemen dengan ID tertentu
+                    function scrollToSection(sectionId) {
+                        const section = document.getElementById(sectionId);
+                        window.scrollTo({
+                            top: section.offsetTop,
+                            behavior: 'smooth' // Animasi scroll
+                        });
+                    }
+            
+                    // Menangani klik pada link HOME
+                    document.querySelector('a[href="#HOME"]').addEventListener('click', function (e) {
+                        e.preventDefault();
+                        scrollToSection('HOME');
+                    });
+            
+                    // Menangani klik pada link ABOUT
+                    document.querySelector('a[href="#about-me-section"]').addEventListener('click', function (e) {
+                        e.preventDefault();
+                        scrollToSection('about-me-section');
+                    });
+            
+                    // Menangani klik pada link CONTACT
+                    document.querySelector('a[href="#CONTACT"]').addEventListener('click', function (e) {
+                        e.preventDefault();
+                        scrollToSection('CONTACT');
+                    });
+                </script>
+
+                <h2>Hello, I'm</h2>
+            </div>
+
+            <div class="fotoaku">
+                <img
+                src="meeo.png" alt="Hafiz Iman Mustaqim" style="width: 354px; height: 472px;">
+            </div>
+
+            <img
+                src="Belakang-01.png" class="belakang-image"  style="width: 800px; height: 800px;">
+
+            <div class="nama">
+                <h1>Hafiz Iman</h1>
+                <h1 style="position: relative; top: -75px; left: 22px;">Mustaqim</h1>
+            </div>
+
+            <div class="knowing">
+                <h3>West Java, Indonesia</h3>
+            </div>
+
+            <div class="atr">
+            </div>
+        </section>
+
+
+
+
+        <section id="about-me-section" class="about-me">
+
+            <div class="about-me-line">
+            </div>
+
+            <div class="slide" id="slide1">
+                <div class="profile-image">
+                    <img src="aku1x1.jpg" alt="Aku Bayi">
+                </div>
+                <div class="about-me-text">
+                    <h1>About Me</h1>
+                    <h2>Birth</h2>
+                    <pre style="margin-top: -25px; font-family: 'Montserrat';">
+I'm born at 14th of April 2003 in Bekasi, West Java. 
+looks like usual baby isn't it?
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="slide" id="slide2">
+                <div class="profile-image">
+                    <img src="aku1x1.jpg" alt="Aku SD">
+                </div>
+                <div class="about-me-text">
+                    <h1>About Me</h1>
+                    <h2>Elementary School</h2>
+                    <pre style="margin-top: -25px; font-family: 'Montserrat';">
+<span style="font-weight: bold;">Darul Abidin, Depok</span>
+
+Oh, it's Elementary phase... 
+I got first bronze medal in archery, and
+Crowned as a highest islamic Religious Studies values
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="slide" id="slide3">
+                <div class="profile-image">
+                    <img src="aku1x1.jpg" alt="Aku SMP">
+                </div>
+                <div class="about-me-text">
+                    <h1>About Me</h1>
+                    <h2>Middle School</h2>
+                    <pre style="margin-top: -25px; font-family: 'Montserrat';">
+<span style="font-weight: bold;">Madinatul Quran, Depok</span>
+
+A part of journey,
+Memorized a half of Holy Quran.
+Child to Teen Phase. Puberty.
+Still with my strong Childish character
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="slide" id="slide4">
+                <div class="profile-image">
+                    <img src="aku1x1.jpg" alt="Aku SMA">
+                </div>
+                <div class="about-me-text">
+                    <h1>About Me</h1>
+                    <h2>High School</h2>
+                    <pre style="margin-top: -25px; font-family: 'Montserrat';">
+<span style="font-weight: bold;">Husnul Khotimah, Kuningan</span>
+
+Back Home? Do not Expect.
+Lot of failure.
+Got my First Ranking in class.
+got "Mumtaz" Title in Islamic Boarding School Lesson.
+Gapyear? Yes.
+                    </pre>
+                </div>
+            </div>
+            
+            <div class="slide" id="slide5">
+                <div class="profile-image">
+                    <img src="aku1x1.jpg" alt="Aku Coolyeah">
+                </div>
+                <div class="about-me-text">
+                    <h1>About Me</h1>
+                    <h2>University</h2>
+                    <pre style="margin-top: -25px; font-family: 'Montserrat';">
+<span style="font-weight: bold;">IPB University, Bogor</span>
+
+Still Undergraduate here.
+First time fell in love with someone.
+                    </pre>
+                </div>
+            </div>
+
+            <div class="slide" id="slide6">
+                <div class="profile-image">
+                    <img src="aku1x1.jpg" alt="Hobiku">
+                </div>
+                <div class="about-me-text">
+                    <h1>About Me</h1>
+                    <h2>Hobbies</h2>
+                    <pre style="margin-top: -25px; font-family: 'Montserrat';">
+<span style="font-weight: bold;">Al-Hiwayah</span>
+
+For now :
+Coding, graphic design, entrepreneurship,
+Learn new things, drawing, etc.
+                    </pre>
+                </div>
+            </div>
+
+            <div class="button">
+        <button onclick="prevSlide()" class="previous round">&larr;</button>
+        <button onclick="nextSlide()" class="next round">&rarr;</button>
+            </div>
+
+            <script>
+                let currentSlide = 1;
+            
+                function showSlide(n) {
+                    const slides = document.querySelectorAll('.slide');
+                    if (n > slides.length) {
+                        currentSlide = 1;
+                    }
+                    if (n < 1) {
+                        currentSlide = slides.length;
+                    }
+                    for (let i = 0; i < slides.length; i++) {
+                        slides[i].style.display = 'none';
+                    }
+                    slides[currentSlide - 1].style.display = 'block';
+                }
+            
+                function nextSlide() {
+                    showSlide(currentSlide += 1);
+                }
+            
+                function prevSlide() {
+                    showSlide(currentSlide -= 1);
+                }
+            
+                showSlide(currentSlide);
+            
+                document.addEventListener('keydown', function (event) {
+                    if (event.key === 'ArrowLeft') {
+                        prevSlide();
+                    } else if (event.key === 'ArrowRight') {
+                        nextSlide();
+                    }
+                });
+            </script>
+
+        </section>
+    
+        
+
+        <section id="CONTACT">
+
+            <div class="contact-section">
+                <h1>Contact Me</h1>
+    
+                <div class="contact-info">
+                    <div class="info-item">
+                        <h2>Email:</h2>
+                        <p>haafiziman13@gmail.com</p>
+                    </div>
+    
+                    <div class="info-item">
+                        <h2>Instagram:</h2>
+                        <p style="text-decoration: none; "><a href="https://www.instagram.com/haafiz.man" target="_blank">instagram.com/haafiz.man</a></p>
+                    </div>
+                </div>
+            </div>
+   
+
+        </section>
+
+ 
+
+    </body>
+
+</html>
